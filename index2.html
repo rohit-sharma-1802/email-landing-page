@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles3.css">
+
+<title>Cycle Div Content</title>
+<style>
+  /* Styling for the main container */
+  body{
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  #container {
+    width: 90%;
+    height: 80vh;
+    cursor: pointer;
+    padding-block: 40px;
+    margin: auto;
+  }
+
+  /* Hide all sub-divs by default */
+  .content {
+    display: none;
+  }
+
+  /* Active sub-div styling */
+  .active {
+    display: block;
+  }
+
+  
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background: url('hero-bg.jpg ') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(17, 14, 14, 0.6); /* Dark overlay for text readability */
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 17px;
+    max-width: 70%;
+}
+  
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .hero p {
+    font-size: 1.6rem;
+  }
+  .heading {
+    color: rgb(71, 68, 68);
+    padding-inline: 10px;
+    font-size: 1.6rem;
+}
+    
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+    
+    .hero p {
+      font-size: 1rem;
+    }
+  }
+
+  
+
+/* Call to action */
+.contact-section {
+    display: flex;
+    flex-wrap: wrap;
+    height: 70vh;
+  }
+  
+  .contact-left {
+    flex: 1;
+    background: url('call-to-action.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 20px;
+    position: relative;
+    min-width: 300px;
+  }
+  
+  .contact-left::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
+  }
+  
+  .contact-title {
+    position: relative;
+    text-align: center;
+    max-width: 100%;
+    z-index: 1;
+  }
+  
+  .contact-title h2 {
+    font-size: 3.5rem;
+    color: #fffffe;
+  }
+  
+  .contact-form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    /* min-width: 300px; */
+  }
+  
+  form {
+    width: 100%;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 0.2rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .form-row input {
+    flex: 1;
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .submit-btn {
+    width: 30%;
+    padding: 0.8rem;
+    background-color: #004aa4;
+    color: #fdfdfd;
+    border: none;
+    border-radius: 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #fff;
+    border: 1px solid #004aad;
+    color: #000;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .contact-section {
+      flex-direction: column;
+      height: auto;
+      padding-top: 50px;
+    }
+    
+    .contact-title h2 {
+      font-size: 1.5rem;
+    }
+  
+    .contact-form {
+      padding: 10px;
+    }
+  }
+  
+</style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+        </div>
+    </section>
+    <div class="container">
+        <!-- --------------page1---------------- -->
+        <div class="heading realHeading">
+            <h1>Combatting the Growing Cost of Component Obsolescence</h1>
+            <p class="subheading"><em>Obsolescence</em> Is Costing Your Business – Are You Prepared?</p>
+        </div>
+<!-- Main container div -->
+<div id="container">
+  <!-- Sub-divs with different content -->
+  <div class="content active">
+    <div class="page-1 ">
+        <div class="grid">
+            <div class="calendar"><img src="./images/calendar.png" /></div>
+            <div class="dollar"><img src="./images/dollar.png" /></div>
+            <div class="calendar-text">2023</div>
+            <div class="dollar-text">Product Redesign</div>
+            <div class="year-box">
+                <div>328K</div>
+                <div style="font-size: 30px;">EOL Notices</div>
+            </div>
+            <div class="year-Description">
+                As technology advances and product life cycles shorten, the challenge of managing electronic
+                component obsolescence is becoming more severe. In 2023 alone, over 328,000 End-of-Life (EOL)
+                notices were issued, signaling that more components are going out of production faster than ever
+                before.
+            </div>
+            <div class="product-box">
+                <div>100K</div>
+                <div style="font-size: 30px;">per Occurence</div>
+            </div>
+            <div class="product-Description"><br>On average, companies face the costly reality of redesigning
+                products and scrambling to find replacements, with each occurrence potentially costing up to
+                $100,000.</div>
+        </div>
+    </div>
+  </div>
+  <div class="content"><div class="page-2">
+    <div class="grid-container">
+        <div class="page-2-images">
+            <img src="./images/page2.png" />
+        </div>
+        <div class="page-2-description">
+            In industries with long product life cycles—such as
+            automotive (especially EVs), aerospace, healthcare, and
+            industrial manufacturing—this issue is amplified.<br>
+            <br>
+            When even a single obsolete component stalls
+            production, the ripple effects can result in 6-12 months of
+            delays, product shortages, and increased supply chain
+            vulnerabilities. What happens if this occurs 10 times a
+            year?<br>
+            <br>
+
+            You’re looking at a $1 million annual hit, not counting lost
+            revenue from delayed time-to-market.
+        </div>
+    </div>
+</div></div>
+  <div class="content"><div class="page-3">
+    <div class="headLine"> <em>The Numbers Don't Lie</em></div>
+    <div class="page-3-container">
+        <div class="card-1 page-3-card">
+            <img src="./images/info.png" />
+            <p><b>15 End-of-life(EOL) notices</b> are issued every day, on average</p>
+        </div>
+        <div class="card-2 page-3-card">
+            <img src="./images/notification.png">
+            <p> <b>30 Product Change Notifications (PCNs)</b> are circulated daily,
+                pushing procurement teams into overdrive to find solutions</p>
+        </div>
+        <div class="card-3 page-3-card">
+            <img src="./images/stopwatch.png">
+            <p><b>35% of components face instant obsolescence</b> upon release,
+                putting procurement manageers in a reace to find last-time buysor alternatives</p>
+        </div>
+    </div>
+</div></div>
+  <div class="content"><div class="page-4">
+    <div class="page-4-container">
+        <div class="card-1 page-4-card">
+            <img src="./images/img1.png" />
+            <p><b>Global Supplier Network</b></p>
+        </div>
+        <div class="card-2 page-4-card">
+            <img src="./images/img2.png" />
+            <p><b>Customers from
+
+                    7 Industries & 13 Countries</b></p>
+        </div>
+        <div class="card-3 page-4-card">
+            <img src="./images/img3.png" />
+            <p><b> 0% Sales Returns Till Date</b></p>
+
+        </div>
+        <div class="card-4 page-4-card">
+            <img src="./images/img4.png" />
+            <p>
+                </pstyle> <b>Worldwide Delivery
+                    in 3 weeks or less</b></p>
+        </div>
+    </div>
+    <p>At Maketronics, we understand how critical it is to stay ahead of component obsolescence. As procurement
+        teams struggle to source
+        hard-to-find or obsolete parts, we offer a global network
+        of suppliers specializing in obsolete and end-of-life components.
+        Whether it’s locating legacy parts for your aerospace project or ensuring that your automotive
+        production line runs without hiccups, our
+        team is equipped to provide:<br>
+        <br>
+        Global Sourcing for Obsolete Components: We maintain relationships with trusted suppliers worldwide,
+        allowing us to track down
+        obsolete parts that are no longer available from franchise distributors.<br>
+        <br>
+        End-to-End Procurement Support: From managing your entire obsolescence strategy to securing
+        alternatives, we help ensure that your
+        production lines stay operational and efficient.
+    </p>
+</div></div>
+  <div class="content"><h1 class="heading">Key Stats to Remember</h1>
+    <div class="page-5">
+        <div class="card1 page-5-card">
+            <img src="./images/eol.png">
+        </div>
+        <div class="card2 page-5-card">
+            <img src="./images/prod.png">
+
+        </div>
+        <div class="card3 page-5-card">
+            <div>
+                <img src="./images/delay.png">
+                <div>6-12 months delay</div>
+            </div>
+        </div>
+        <div class="card4 page-5-card">
+            <img src="./images/info.png">
+            <div>15 EOL notices every day</div>
+        </div>
+        <div class="card5 page-5-card">
+            <img src="./images/notification.png">
+            <div>30 PCNs/day</div>
+        </div>
+        <div class="card6 page-5-card">
+            <img src="./images/stopwatch.png">
+            <div>35% parts face instant
+                obsolescence</div>
+        </div>
+    </div></div>
+</div></div>
+
+<section class="contact-section">
+    <div class="contact-left">
+        <div class="contact-title">
+            <h2>Looking for something? Reach out to us</h2>
+        </div>
+    </div>
+
+    <div class="contact-form">
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" required>
+            </div>
+            <div class="form-row">
+                <input type="text" placeholder="Part #" name="part" required>
+                <input type="number" placeholder="Quantity" name="quantity" required>
+                <input type="text" placeholder="Target Price" name="target-price">
+            </div>
+            <div class="form-group">
+                <label for="file-upload">Upload File</label>
+                <input type="file" id="file-upload" name="file-upload">
+            </div>
+            <div class="form-group">
+                <label for="voucher">Promotional Voucher</label>
+                <input type="text" id="voucher" name="voucher">
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</section>
+
+
+<script>
+  // JavaScript to handle cycling through the content
+  const container = document.getElementById('container');
+  const contents = document.querySelectorAll('.content');
+  let currentIndex = 0;
+
+  // Function to cycle content
+  function cycleContent() {
+    // Hide the current active content
+    contents[currentIndex].classList.remove('active');
+    // Move to the next index, loop back to 0 if at the end
+    currentIndex = (currentIndex + 1) % contents.length;
+    // Show the new active content
+    contents[currentIndex].classList.add('active');
+  }
+
+  // Event listener for clicking on the container
+  container.addEventListener('click', cycleContent);
+</script>
+
+</body>
+</html>
