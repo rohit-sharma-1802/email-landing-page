@@ -75,7 +75,28 @@
     padding-inline: 10px;
     font-size: 1.6rem;
 }
-    
+    /* Arrow buttons */
+  .arrow {
+    position: absolute;
+    top: 140%;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: #004aa4;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .arrow-left {
+    left: 10px;
+  }
+
+  .arrow-right {
+    right: 10px;
+  }
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .hero h1 {
@@ -91,6 +112,7 @@
 
 /* Call to action */
 .contact-section {
+  padding-top: 60px;;
     display: flex;
     flex-wrap: wrap;
     height: 70vh;
@@ -231,6 +253,9 @@
 <!-- Main container div -->
 <div id="container">
   <!-- Sub-divs with different content -->
+  <button class="arrow arrow-left" onclick="prevContent()">&#10094;</button>
+  <button class="arrow arrow-right" onclick="nextContent()">&#10095;</button>
+
   <div class="content active">
     <div class="page-1 ">
         <div class="grid">
@@ -374,7 +399,7 @@
 <section class="contact-section">
     <div class="contact-left">
         <div class="contact-title">
-            <h2>Looking for something? Reach out to us</h2>
+            <h2>Looking for a specific part? Please drop an RFQ here</h2>
         </div>
     </div>
 
@@ -410,25 +435,45 @@
     </div>
 </section>
 
-
 <script>
-  // JavaScript to handle cycling through the content
   const container = document.getElementById('container');
   const contents = document.querySelectorAll('.content');
   let currentIndex = 0;
+  let autoCycle;
 
-  // Function to cycle content
-  function cycleContent() {
-    // Hide the current active content
+  // Function to show a specific content by index
+  function showContent(index) {
     contents[currentIndex].classList.remove('active');
-    // Move to the next index, loop back to 0 if at the end
-    currentIndex = (currentIndex + 1) % contents.length;
-    // Show the new active content
+    currentIndex = (index + contents.length) % contents.length;
     contents[currentIndex].classList.add('active');
   }
 
-  // Event listener for clicking on the container
-  container.addEventListener('click', cycleContent);
+  // Function to cycle to the next content
+  function nextContent() {
+    showContent(currentIndex + 1);
+  }
+
+  // Function to cycle to the previous content
+  function prevContent() {
+    showContent(currentIndex - 1);
+  }
+
+  // Automatic cycling
+  function startAutoCycle() {
+    autoCycle = setInterval(nextContent, 2000); // Change every 5 seconds
+  }
+
+  // Stop auto cycling
+  function stopAutoCycle() {
+    clearInterval(autoCycle);
+  }
+
+  // Start auto cycling when page loads
+  window.onload = () => {
+    startAutoCycle();
+    container.addEventListener('mouseenter', stopAutoCycle); // Stop on hover
+    container.addEventListener('mouseleave', startAutoCycle); // Restart on mouse leave
+  };
 </script>
 
 </body>
